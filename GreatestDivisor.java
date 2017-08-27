@@ -5,14 +5,10 @@ package com.skillsup.calculator;
  */
 public class GreatestDivisor implements Operation {
 
-    private double a, b;
-
     @Override
     public double execute (double a, double b) {
 
         double nodResult;
-        this.a = a;
-        this.b = b;
         NOD Nod = new NOD();
         nodResult = Nod.getCalculateNod(a, b);
 
@@ -21,12 +17,20 @@ public class GreatestDivisor implements Operation {
 
     private class NOD {
         private double getCalculateNod(double a, double b){
-            while (b !=0) {
-                double tmp = a%b;
-                a = b;
-                b = tmp;
+            try {
+            if (a % 1 == 0 && b % 1 == 0)  {
+                while (b != 0) {
+                    double tmp = a % b;
+                    a = b;
+                    b = tmp;
+                }
+                return a;
             }
-            return a;
+            else throw new NullPointerException("Нельзя посчтитать НОД для дробного числа");
+            }
+            catch (NullPointerException e) {
+                return 0; //System.out.println("Нельзя посчтитать НОД");
+            }
         }
     }
 
