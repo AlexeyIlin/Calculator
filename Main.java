@@ -16,23 +16,11 @@ public class Main {
         double number1 = 25.1, number2 = 50;
         String symbol = "+";
 
-        Operator operator;
-        try {
-            if (symbol == "+")
-                operator = Operator.Plus;
-            else if (symbol == "-")
-                operator = Operator.Min;
-            else if (symbol == "x")
-                operator = Operator.Mul;
-            else if (symbol == "/")
-                operator = Operator.Div;
-            else throw new IllegalArgumentException("Wrong symbol");
-        } catch (Exception ex) {
-            System.err.println("Operation is not correct" + Operator.valueOf("Other"));
-        }
+        Operator Symbols = Operator.valueOf(symbol);
+
 
             OperationFactoryImpl MyOpFactory = new OperationFactoryImpl();
-            Operation opInstance = MyOpFactory.getOpInstance();
+            Operation opInstance = MyOpFactory.getOpInstance(Symbols);
             double result = opInstance.execute(number1, number2);
 
             GreatestDivisor MyNod = new GreatestDivisor();

@@ -13,16 +13,15 @@ public class OperationFactoryImpl implements OperationFactory {
 
 
     @Override
-    public Operation getOpInstance(){
-        this.Symbols = ;
+    public Operation getOpInstance(Operator Symbols){
         switch (Symbols) {
-            case Plus:
+            case PLUS:
                 return new OpPlus();
-            case Min :
+            case MIN :
                 return new OpMin();
-            case Mul :
+            case MUL :
                 return new OpMul();
-            case Div :
+            case DIV :
                 return new OpDiv();
             default: throw new IllegalArgumentException("required one of ariphmetic operations, but found  " + Symbols);
         }
