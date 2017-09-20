@@ -14,7 +14,7 @@ public class Main {
 
 
         double number1 = 25.1, number2 = 50;
-        String symbol = "+";
+        String symbol = "PLUS";
 
         Operator Symbols = Operator.valueOf(symbol);
 
