@@ -1,6 +1,8 @@
 package com.skillsup.calculator.operations;
 
 
+import com.skillsup.calculator.exceptions.CannotCalculateNodException;
+
 /**
  * Created by Aleksey on 20.08.2017.
  */
@@ -27,10 +29,10 @@ public class GreatestDivisor implements Operation {
                 }
                 return a;
             }
-            else throw new NullPointerException("Нельзя посчтитать НОД для дробного числа");
+            else throw new CannotCalculateNodException("Нельзя посчтитать НОД для дробного числа");
             }
-            catch (NullPointerException e) {
-                return 0; //System.out.println("Нельзя посчтитать НОД");
+            catch (CannotCalculateNodException ex) {
+                return 0;
             }
         }
     }

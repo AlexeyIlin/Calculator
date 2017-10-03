@@ -14,6 +14,17 @@ public enum Operator {
     private Operator(String symbol){
 
         this.symbol=symbol;
+
+    }
+
+    public static Operator setOperator(String symbol) {
+        if (symbol == "+")
+                return PLUS;
+            if (symbol == "-")
+                return MIN;
+                if (symbol == "*")
+                    return DIV;
+                    else return DIV;
     }
 
 }
