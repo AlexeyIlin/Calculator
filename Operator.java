@@ -1,5 +1,7 @@
 package com.skillsup.calculator;
 
+import com.skillsup.calculator.exceptions.OperationNotFoundException;
+
 /**
  * Created by Aleksey on 17.09.2017.
  */
@@ -11,20 +13,24 @@ public enum Operator {
     ;
     String symbol;
 
-    private Operator(String symbol){
+    private Operator(String symbols){
 
-        this.symbol=symbol;
+        this.symbol=symbols;
 
     }
 
-    public static Operator setOperator(String symbol) {
-        if (symbol == "+")
+    public static Operator setOperator(String symbols) throws OperationNotFoundException {
+        if (symbols == "+")
                 return PLUS;
-            if (symbol == "-")
+            if (symbols == "-")
                 return MIN;
-                if (symbol == "*")
+                if (symbols == "*")
                     return DIV;
-                    else return DIV;
+                    if (symbols == "/")
+                        return DIV;
+                        else {
+                        throw new OperationNotFoundException("Оператор не найден!");
+                    }
     }
 
 }

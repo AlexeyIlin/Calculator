@@ -15,27 +15,31 @@ import java.io.InputStreamReader;
 
 
 public class Main {
-    public static void main(String [] args){
+    public static void main(String [] args) {
 
         BufferedReader bfreader = new BufferedReader(new InputStreamReader(System.in));
         String stringFromConsole = "";
 
 
         double number1 = 25.1, number2 = 50;
-        String symbol = "8";
+        String symbol = "+";
 
-            Operator symbols = Operator.setOperator(symbol);
+        Operator symbols = null;
+        try {
+            symbols = Operator.setOperator(symbol);
+        } catch (OperationNotFoundException ex) {
+            System.out.println(ex);
+        }
 
+        OperationFactoryImpl MyOpFactory = new OperationFactoryImpl();
+        Operation opInstance = MyOpFactory.getOpInstance(symbols);
+        double result = opInstance.execute(number1, number2);
 
-            OperationFactoryImpl MyOpFactory = new OperationFactoryImpl();
-            Operation opInstance = MyOpFactory.getOpInstance(symbols);
-            double result = opInstance.execute(number1, number2);
+        GreatestDivisor MyNod = new GreatestDivisor();
+        double nodResult = MyNod.execute(number1, number2);
 
-            GreatestDivisor MyNod = new GreatestDivisor();
-            double nodResult = MyNod.execute(number1, number2);
-
-            System.out.println("The result is " + result);
-            System.out.println("The NOD is " + nodResult);
+        System.out.println("The result is " + result);
+        System.out.println("The NOD is " + nodResult);
 
     }
 }
