@@ -11,11 +11,11 @@ public enum Operator {
     MUL("*"),
     DIV("/"),
     ;
-    String symbol;
+    String symbols;
 
     private Operator(String symbols){
 
-        this.symbol=symbols;
+        this.symbols=symbols;
 
     }
 
