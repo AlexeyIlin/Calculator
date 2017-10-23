@@ -5,8 +5,8 @@ import static java.lang.System.*;
 /**
  * Created by Aleksey on 03.10.2017.
  */
-public class CannotCalculateNodException extends Exception{
-    public CannotCalculateNodException (String message){
+public class CannotCalculateException extends Exception{
+    public CannotCalculateException (String message){
         super(message);
         out.println(message);
     }
