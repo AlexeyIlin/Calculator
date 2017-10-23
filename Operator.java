@@ -7,8 +7,8 @@ import com.skillsup.calculator.exceptions.OperationNotFoundException;
  */
 public enum Operator {
     PLUS("+"),
-    MIN("-"),
     MUL("*"),
+    MIN("-"),
     DIV("/"),
     ;
     String symbols;
@@ -33,4 +33,8 @@ public enum Operator {
                     }
     }
 
+    @Override
+    public String toString() {
+        return symbols;
+    }
 }

@@ -2,12 +2,11 @@ package com.skillsup.calculator;
 
 import com.skillsup.calculator.operationFactory.OperationFactoryImpl;
 import com.skillsup.calculator.operations.GreatestDivisor;
+import com.skillsup.calculator.operations.OpNok;
 import com.skillsup.calculator.operations.Operation;
 import com.skillsup.calculator.exceptions.OperationNotFoundException;
+import com.skillsup.calculator.read.ReadFile;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
 
 /**
  * Created by Aleksey on 12.08.2017.
@@ -17,12 +16,13 @@ import java.io.InputStreamReader;
 public class Main {
     public static void main(String [] args) {
 
-        BufferedReader bfreader = new BufferedReader(new InputStreamReader(System.in));
-        String stringFromConsole = "";
 
 
-        double number1 = 25.1, number2 = 50;
+        double number1 =44, number2 = 33;
         String symbol = "+";
+
+        ReadFile read = new ReadFile("C:\\Users\\Aleksey\\IdeaProjects\\Calculator\\src\\input.txt");
+        read.getData();
 
         Operator symbols = null;
         try {
@@ -31,15 +31,19 @@ public class Main {
             System.out.println(ex);
         }
 
-        OperationFactoryImpl MyOpFactory = new OperationFactoryImpl();
-        Operation opInstance = MyOpFactory.getOpInstance(symbols);
+        OperationFactoryImpl myOpFactory = new OperationFactoryImpl();
+        Operation opInstance = myOpFactory.getOpInstance(symbols);
         double result = opInstance.execute(number1, number2);
 
-        GreatestDivisor MyNod = new GreatestDivisor();
-        double nodResult = MyNod.execute(number1, number2);
+        GreatestDivisor myNod = new GreatestDivisor();
+        double nodResult = myNod.execute(number1, number2);
+
+        OpNok myNok = new OpNok();
+        double nokResult = myNok.execute(number1, number2);
 
         System.out.println("The result is " + result);
         System.out.println("The NOD is " + nodResult);
+        System.out.println("The NOK is " + nokResult);
 
     }
 }
