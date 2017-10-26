@@ -5,6 +5,7 @@ import com.skillsup.calculator.operations.GreatestDivisor;
 import com.skillsup.calculator.operations.OpNok;
 import com.skillsup.calculator.operations.Operation;
 import com.skillsup.calculator.exceptions.OperationNotFoundException;
+import com.skillsup.calculator.read.CalHolder;
 import com.skillsup.calculator.read.ReadFile;
 
 
@@ -16,13 +17,14 @@ import com.skillsup.calculator.read.ReadFile;
 public class Main {
     public static void main(String [] args) {
 
+        //double number1 =44, number2 = 33;
+        //String symbol = "+";
 
-
-        double number1 =44, number2 = 33;
-        String symbol = "+";
-
-        ReadFile read = new ReadFile("C:\\Users\\Aleksey\\IdeaProjects\\Calculator\\src\\input.txt");
-        read.getData();
+        ReadFile read = new ReadFile("C:\\Users\\Aleksey\\IdeaProjects\\Calculator\\src\\Data.txt");
+        CalHolder calHolder = read.getData();
+        double number1 = calHolder.getLeftDigit();
+        double number2 = calHolder.getRightDigit();
+        String symbol = calHolder.getOperators();
 
         Operator symbols = null;
         try {

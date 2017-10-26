@@ -20,13 +20,13 @@ public enum Operator {
     }
 
     public static Operator setOperator(String symbols) throws OperationNotFoundException {
-        if (symbols == "+")
+        if (symbols.equals("+"))
                 return PLUS;
-            if (symbols == "-")
+            if (symbols.equals("-"))
                 return MIN;
-                if (symbols == "*")
-                    return DIV;
-                    if (symbols == "/")
+                if (symbols.equals("*"))
+                    return MUL;
+                    if (symbols.equals("/"))
                         return DIV;
                         else {
                         throw new OperationNotFoundException("Оператор не найден!");

@@ -1,5 +1,7 @@
 package com.skillsup.calculator.operations;
 
+import com.skillsup.calculator.exceptions.CannotCalculateException;
+
 import java.util.ArrayList;
 
 /**
@@ -13,7 +15,14 @@ public class OpNok implements Operation {
         int result = 1;
         ArrayList <Integer> nokResult = new ArrayList<Integer>();
         NOK nok = new NOK();
-        nokResult = nok.getMaxValues(a, b);
+        try {
+            if (a % 1 == 0 && b % 1 == 0) {
+                nokResult = nok.getMaxValues(a, b);
+            }
+            else throw new CannotCalculateException("Нельзя посчтитать НОR для дробного числа");
+        }catch (CannotCalculateException ex) {
+            return -1;
+        }
 
         for (int i = 0 ; i < nokResult.size() ; i++){
             result = result * nokResult.get(i);

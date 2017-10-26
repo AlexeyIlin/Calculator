@@ -11,7 +11,7 @@ import java.util.List;
 public class CalHolder {
     private double rightDigit;
     private double leftDigit;
-    private Operator operator;
+    private String operator;
 
     public CalHolder (){
     }
@@ -28,7 +28,7 @@ public class CalHolder {
         this.rightDigit = rightDigit;
     }
 
-    public void setOperator(Operator operator) {
+    public void setOperator(String operator) {
         this.operator = operator;
     }
 
@@ -36,7 +36,7 @@ public class CalHolder {
         return rightDigit;
     }
 
-    public Operator getOperators(){
+    public String getOperators(){
         return operator;
     }
 
