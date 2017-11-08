@@ -1,6 +1,4 @@
-package com.skillsup.calculator.read;
-
-import com.skillsup.calculator.Operator;
+package com.skillsup.calculator.io;
 
 import java.io.BufferedReader;
 import java.io.FileInputStream;
