@@ -8,7 +8,6 @@ import java.io.*;
 public class WriteFile {
 
     private String fileName;
-    double result, nodResult, nokResult;
 
     public WriteFile (String fileName){
         this.fileName = fileName;
