@@ -19,33 +19,23 @@ public class WriteFile {
         String nod = String.valueOf(nodResult);
         String nok = String.valueOf(nokResult);
 
-
         try {
-            new String(readCharsFromFile(fileName, 1, 1));
 
-            writeData(fileName, " = "+finalResult , 1);
-            writeData(fileName, "\n The NOD is "+nod , 1);
-            writeData(fileName, "\n The NOK is "+nok , 1);
+            writeData(fileName, " = "+finalResult );
+            writeData(fileName, "\n The NOD is "+nod);
+            writeData(fileName, "\n The NOK is "+nok);
         } catch (IOException e){
             e.printStackTrace();
         }
 
     }
 
-    private static void writeData(String fileName, String result, int seek) throws IOException{
+    private static void writeData(String fileName, String data) throws IOException{
         RandomAccessFile file = new RandomAccessFile(fileName, "rw");
         long s = file.length();
         file.seek(s);
-        file.write(result.getBytes());
+        file.write(data.getBytes());
         file.close();
     }
 
-    private static byte[] readCharsFromFile(String fileName, int seek, int chars) throws IOException{
-        RandomAccessFile file = new RandomAccessFile(fileName, "r");
-        file.seek(seek);
-        byte[] bytes = new byte[chars];
-        file.read(bytes);
-        file.close();
-        return bytes;
-    }
 }
