@@ -26,7 +26,7 @@ public class Main {
         statisticKeeper.openDB();
 
         //double number1 =44, number2 = 33;
-        String path = "C:\\Users\\Aleksey\\IdeaProjects\\Calculator\\src\\Data.txt";
+        String path = "C:\\Users\\Aleksey\\IdeaProjects\\Calculator\\src\\com\\skillsup\\calculator\\Data.txt";
 
         ReadFile read = new ReadFile(path);
         CalHolder calHolder = read.getData();
