@@ -21,10 +21,6 @@ import java.io.IOException;
 public class Main {
     public static void main(String [] args) throws IOException, OperationNotFoundException {
 
-
-        StatisticsKeeper statisticKeeper = StatisticsKeeper.getInstance();
-        statisticKeeper.openDB();
-
         //double number1 =44, number2 = 33;
         String path = "C:\\Users\\Aleksey\\IdeaProjects\\Calculator\\src\\com\\skillsup\\calculator\\Data.txt";
 

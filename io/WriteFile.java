@@ -1,6 +1,9 @@
 package com.skillsup.calculator.io;
 
+import com.skillsup.calculator.db.StatisticsKeeper;
+
 import java.io.*;
+import java.sql.Connection;
 
 /**
  * Created by Aleksey on 06.11.2017.
@@ -25,6 +28,9 @@ public class WriteFile {
             writeData(fileName, "\n The NOD is "+nod);
             writeData(fileName, "\n The NOK is "+nok);
 
+
+            Connection conn = StatisticsKeeper.openDB();
+            StatisticsKeeper.addResult(conn);
 
 
         } catch (IOException e){
