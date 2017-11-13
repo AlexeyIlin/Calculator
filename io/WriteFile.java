@@ -1,7 +1,5 @@
 package com.skillsup.calculator.io;
 
-import db.StatisticsKeeper;
-
 import java.io.*;
 
 /**
