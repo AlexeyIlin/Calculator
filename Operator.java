@@ -19,7 +19,7 @@ public enum Operator {
 
     }
 
-    public static Operator setOperator(String symbols) throws OperationNotFoundException {
+    public static Operator operatorValue(String symbols) throws OperationNotFoundException {
         if (symbols.equals("+"))
                 return PLUS;
             if (symbols.equals("-"))

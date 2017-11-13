@@ -8,6 +8,7 @@ import com.skillsup.calculator.operations.Operation;
 import com.skillsup.calculator.exceptions.OperationNotFoundException;
 import com.skillsup.calculator.io.CalHolder;
 import com.skillsup.calculator.io.ReadFile;
+import db.StatisticsKeeper;
 
 import java.io.IOException;
 
@@ -18,7 +19,11 @@ import java.io.IOException;
 
 
 public class Main {
-    public static void main(String [] args) throws IOException {
+    public static void main(String [] args) throws IOException, OperationNotFoundException {
+
+
+        StatisticsKeeper statisticKeeper = StatisticsKeeper.getInstance();
+        statisticKeeper.openDB();
 
         //double number1 =44, number2 = 33;
         String path = "C:\\Users\\Aleksey\\IdeaProjects\\Calculator\\src\\Data.txt";
@@ -31,7 +36,7 @@ public class Main {
 
         Operator symbols = null;
         try {
-            symbols = Operator.setOperator(symbol);
+            symbols = Operator.operatorValue(symbol);
         } catch (OperationNotFoundException ex) {
             System.out.println(ex);
         }

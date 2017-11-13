@@ -22,7 +22,10 @@ public class ReadFile {
 
     public CalHolder getData(){
         CalHolder calHolder = new CalHolder();
-        ArrayList <String> list = new ArrayList<String>();
+        String num1 = null;
+        String num2 = null;
+        String s = null;
+
         try{
             FileInputStream fstream = new FileInputStream(fileName);
             BufferedReader br = new BufferedReader(new InputStreamReader(fstream));
@@ -33,14 +36,14 @@ public class ReadFile {
                 Matcher symbol = Pattern.compile("[+,-,*,/]").matcher(strLine);
                 Matcher number2 = Pattern.compile("[0-9]*$").matcher(strLine);
                 if (number1.find() == true && symbol.find() == true && number2.find() == true){
-                    list.add(number1.group());
-                    list.add(symbol.group());
-                    list.add(number2.group());
+                    num1 = number1.group();
+                    s = symbol.group();
+                    num2 = number2.group();
                 }
 
-                double leftDigit = Integer.parseInt(list.get(0));
-                double rightDigit = Integer.parseInt(list.get(2));
-                String operator = list.get(1);
+                double leftDigit = Double.parseDouble(num1);
+                double rightDigit = Double.parseDouble(num2);
+                String operator = s;
 
                 calHolder.setLeftDigit(leftDigit);
                 calHolder.setRightDigit(rightDigit);

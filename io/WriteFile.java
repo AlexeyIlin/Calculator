@@ -1,5 +1,7 @@
 package com.skillsup.calculator.io;
 
+import db.StatisticsKeeper;
+
 import java.io.*;
 
 /**
@@ -24,6 +26,9 @@ public class WriteFile {
             writeData(fileName, " = "+finalResult );
             writeData(fileName, "\n The NOD is "+nod);
             writeData(fileName, "\n The NOK is "+nok);
+
+
+
         } catch (IOException e){
             e.printStackTrace();
         }

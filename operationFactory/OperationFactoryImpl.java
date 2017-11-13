@@ -1,6 +1,7 @@
 package com.skillsup.calculator.operationFactory;
 
 import com.skillsup.calculator.Operator;
+import com.skillsup.calculator.exceptions.OperationNotFoundException;
 import com.skillsup.calculator.operations.*;
 
 /**
@@ -13,7 +14,7 @@ public class OperationFactoryImpl implements OperationFactory {
 
 
     @Override
-    public Operation getOpInstance(Operator Symbols){
+    public Operation getOpInstance(Operator Symbols) throws OperationNotFoundException {
         switch (Symbols) {
             case PLUS:
                 return new OpPlus();
@@ -23,7 +24,7 @@ public class OperationFactoryImpl implements OperationFactory {
                 return new OpMul();
             case DIV :
                 return new OpDiv();
-            default: throw new IllegalArgumentException("required one of ariphmetic operations, but found  " + Symbols);
+            default: throw new OperationNotFoundException("required one of ariphmetic operations, but found  " + Symbols);
         }
 
     }
