@@ -8,11 +8,11 @@ import java.sql.Connection;
 /**
  * Created by Aleksey on 06.11.2017.
  */
-public class WriteFile {
+public class FileWriteer {
 
     private String fileName;
 
-    public WriteFile (String fileName){
+    public FileWriteer(String fileName){
         this.fileName = fileName;
     }
 
@@ -28,13 +28,12 @@ public class WriteFile {
             writeData(fileName, "\n The NOD is "+nod);
             writeData(fileName, "\n The NOK is "+nok);
 
-
-            Connection conn = StatisticsKeeper.openDB();
-            StatisticsKeeper.addResult(conn);
+            StatisticsKeeper.addResult("success");
 
 
         } catch (IOException e){
             e.printStackTrace();
+            StatisticsKeeper.addResult("error");
         }
 
     }

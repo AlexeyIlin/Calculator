@@ -1,14 +1,14 @@
 package com.skillsup.calculator;
 
-import com.skillsup.calculator.io.WriteFile;
+import com.skillsup.calculator.db.StatisticsKeeper;
+import com.skillsup.calculator.io.FileWriteer;
 import com.skillsup.calculator.operationFactory.OperationFactoryImpl;
 import com.skillsup.calculator.operations.GreatestDivisor;
 import com.skillsup.calculator.operations.OpNok;
 import com.skillsup.calculator.operations.Operation;
 import com.skillsup.calculator.exceptions.OperationNotFoundException;
 import com.skillsup.calculator.io.CalHolder;
-import com.skillsup.calculator.io.ReadFile;
-import com.skillsup.calculator.db.StatisticsKeeper;
+import com.skillsup.calculator.io.FileReader;
 
 import java.io.IOException;
 
@@ -24,7 +24,7 @@ public class Main {
         //double number1 =44, number2 = 33;
         String path = "C:\\Users\\Aleksey\\IdeaProjects\\Calculator\\src\\com\\skillsup\\calculator\\Data.txt";
 
-        ReadFile read = new ReadFile(path);
+        FileReader read = new FileReader(path);
         CalHolder calHolder = read.getData();
         double number1 = calHolder.getLeftDigit();
         double number2 = calHolder.getRightDigit();
@@ -48,11 +48,12 @@ public class Main {
         double nokResult = myNok.execute(number1, number2);
 
 
-        WriteFile write = new WriteFile(path);
+        FileWriteer write = new FileWriteer(path);
         try {
             write.addToFile(result, nodResult, nokResult);
         } catch (IOException e) {
             e.printStackTrace();
+            StatisticsKeeper.addResult("error");
         }
 
 

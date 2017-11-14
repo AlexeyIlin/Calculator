@@ -8,23 +8,14 @@ public class CalHolder {
     private double leftDigit;
     private String operator;
 
-    public CalHolder (){
+    public CalHolder (double leftDigit, double rightDigit, String operator){
+        this.leftDigit = leftDigit;
+        this.rightDigit = rightDigit;
+        this.operator = operator;
     }
 
     public double getLeftDigit() {
         return leftDigit;
-    }
-
-    public void setLeftDigit(double leftDigit) {
-        this.leftDigit = leftDigit;
-    }
-
-    public void setRightDigit (double rightDigit){
-        this.rightDigit = rightDigit;
-    }
-
-    public void setOperator(String operator) {
-        this.operator = operator;
     }
 
     public double getRightDigit(){

@@ -12,16 +12,16 @@ import java.util.regex.Pattern;
 /**
  * Created by Aleksey on 05.10.2017.
  */
-public class ReadFile {
+public class FileReader {
 
     private String fileName;
 
-    public ReadFile(String fileName) {
+    public FileReader(String fileName) {
         this.fileName = fileName;
     }
 
     public CalHolder getData(){
-        CalHolder calHolder = new CalHolder();
+        CalHolder calHolder = null;
         String num1 = null;
         String num2 = null;
         String s = null;
@@ -45,9 +45,7 @@ public class ReadFile {
                 double rightDigit = Double.parseDouble(num2);
                 String operator = s;
 
-                calHolder.setLeftDigit(leftDigit);
-                calHolder.setRightDigit(rightDigit);
-                calHolder.setOperator(operator);
+                calHolder = new CalHolder(leftDigit, rightDigit, operator);
             }
 
         }catch (IOException e){

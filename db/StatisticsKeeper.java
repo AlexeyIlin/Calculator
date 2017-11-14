@@ -40,7 +40,7 @@ public class StatisticsKeeper {
             try{
                 connection = DriverManager.getConnection(
                         "jdbc:postgresql://127.0.0.1:5432/CalculatorDBstatistic", "postgres",
-                        "***");
+                        "pfs222");
 
 
 
@@ -56,7 +56,6 @@ public class StatisticsKeeper {
                 return connection;
 
 
-
             } else {
                 System.out.println("Failed to make connection!");
                 return null;
@@ -65,26 +64,28 @@ public class StatisticsKeeper {
         }
 
 
-        public static void addResult(Connection connection){
+        public static void addResult(String result){
 
             LocalDateTime time = LocalDateTime.now();
+
+            Connection connection = StatisticsKeeper.openDB();
             try{
                 Statement st = connection.createStatement();
-                DatabaseMetaData meta = connection.getMetaData();
-                //if (meta.getTables(null, null, "OPERATIONS_STATISTICS" , new String[] {"TABLE"}) != "OPERATIONS_STATISTICS"){
-                    st.executeQuery("CREATE TABLE OPERATIONS_STATISTICS (Date DATE , STATUS VARCHAR )");
-                //}
 
-                st.executeUpdate("INSERT INTO OPERATIONS_STATISTICS (Date , STATUS) VALUES(CURRENT_DATE , successful)");
-                connection.close();
+                String sql = "CREATE TABLE IF NOT EXISTS OPERATIONS_STATISTICS(DATE_RESULT DATE , STATUS text)";
+                st.executeUpdate(sql);
+
+
+                st.executeUpdate("INSERT INTO OPERATIONS_STATISTICS VALUES('"+time+"', ' "+result+" '  )");
+                st.close();
 
             }catch (SQLException sqle){
-                System.out.println("Could not connect");
+                sqle.printStackTrace();
             }finally{
                 try {
                     connection.close();
                 }catch (SQLException sqle){
-
+                    sqle.printStackTrace();
                 }
             }
 
