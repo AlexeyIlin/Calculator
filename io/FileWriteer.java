@@ -28,12 +28,13 @@ public class FileWriteer {
             writeData(fileName, "\n The NOD is "+nod);
             writeData(fileName, "\n The NOK is "+nok);
 
-            StatisticsKeeper.addResult("success");
+            //StatisticsKeeper.addResult("success");
+            StatisticsKeeper.getInstance().addResult("success");
 
 
         } catch (IOException e){
             e.printStackTrace();
-            StatisticsKeeper.addResult("error");
+            StatisticsKeeper.getInstance().addResult("error");
         }
 
     }

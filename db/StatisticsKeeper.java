@@ -17,13 +17,14 @@ public class StatisticsKeeper {
 
         if (instance == null){
             instance = new StatisticsKeeper();
+            //instance.openDB();
 
         }
         return instance;
     }
 
 
-        public static Connection openDB(){
+        public Connection openDB(){
 
             try{
                 Class.forName("org.postgresql.Driver");
@@ -40,7 +41,7 @@ public class StatisticsKeeper {
             try{
                 connection = DriverManager.getConnection(
                         "jdbc:postgresql://127.0.0.1:5432/CalculatorDBstatistic", "postgres",
-                        "***");
+                        "pfs222");
 
 
 
@@ -64,11 +65,11 @@ public class StatisticsKeeper {
         }
 
 
-        public static void addResult(String result){
+        public void addResult(String result){
 
             LocalDateTime time = LocalDateTime.now();
 
-            Connection connection = StatisticsKeeper.openDB();
+            Connection connection = StatisticsKeeper.getInstance().openDB();
             try{
                 Statement st = connection.createStatement();
 

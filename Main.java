@@ -53,7 +53,7 @@ public class Main {
             write.addToFile(result, nodResult, nokResult);
         } catch (IOException e) {
             e.printStackTrace();
-            StatisticsKeeper.addResult("error");
+            StatisticsKeeper.getInstance().addResult("error");
         }
 
 

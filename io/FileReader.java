@@ -1,5 +1,7 @@
 package com.skillsup.calculator.io;
 
+import com.skillsup.calculator.db.StatisticsKeeper;
+
 import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -50,6 +52,7 @@ public class FileReader {
 
         }catch (IOException e){
             System.out.println("Ошибка чтения файла");
+            StatisticsKeeper.getInstance().addResult("error");
         }
 
         return calHolder;

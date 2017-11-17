@@ -11,6 +11,6 @@ public class CannotCalculateException extends Exception{
     public CannotCalculateException (String message){
         super(message);
         out.println(message);
-        StatisticsKeeper.addResult("error");
+        StatisticsKeeper.getInstance().addResult("error");
     }
 }

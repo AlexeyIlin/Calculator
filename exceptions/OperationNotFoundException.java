@@ -9,6 +9,6 @@ public class OperationNotFoundException extends Exception{
     public OperationNotFoundException(String message) {
         super(message);
         System.out.println(message);
-        StatisticsKeeper.addResult("error");
+        StatisticsKeeper.getInstance().addResult("error");
     }
 }

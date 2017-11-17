@@ -1,5 +1,6 @@
 package com.skillsup.calculator;
 
+import com.skillsup.calculator.db.StatisticsKeeper;
 import com.skillsup.calculator.exceptions.OperationNotFoundException;
 
 /**
