@@ -41,7 +41,7 @@ public class StatisticsKeeper {
             try{
                 connection = DriverManager.getConnection(
                         "jdbc:postgresql://127.0.0.1:5432/CalculatorDBstatistic", "postgres",
-                        "pfs222");
+                        "***");
 
 
 
